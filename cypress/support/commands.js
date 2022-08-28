@@ -3,7 +3,6 @@ import {
     searchTable,
   } from '../e2e/Constants/search'
 
-//const { api } = globals;
 
 /**
  * @description Valid car search with given paramaters
@@ -28,4 +27,34 @@ Cypress.Commands.add('validNonFilteredSearch', (country, city, pickup, dropoff) 
     cy.url()
         .should('contain', pickup)
         .should('contain', dropoff)
+});
+
+/**
+ * @description Navigate to the first car's detail page in the search list
+ * @param {} none 
+ * functions like this would not normally contain so many validations but since I do not
+ * have dom element unit tests written for this test suite I have included them
+**/
+Cypress.Commands.add('navigateToFirstCarsDetailPage', () => {
+    cy.contains('Rent')
+        .should('be.visible')
+        .should('not.be.disabled')
+        .first()
+        .click()
+    cy.url()
+        .should('contain', '/details')
+});
+
+/**
+ * @description Navigate to a car's rental page from the car details page
+ * @param {} none 
+**/
+Cypress.Commands.add('navigateToRentPage', () => {
+    cy.get('.btn-primary')
+        .should('contain', 'Rent!')
+        .should('be.visible')
+        .should('not.be.disabled')
+        .click()
+    cy.url()
+        .should('contain', '/rent')
 });

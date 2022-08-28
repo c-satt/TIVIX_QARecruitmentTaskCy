@@ -1,0 +1,23 @@
+{
+  "name": "tivix_qarecruitmenttaskcy",
+  "version": "1.0.0",
+  "description": "Write automated E2E tests using Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/c-satt/TIVIX_QARecruitmentTaskCy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/c-satt/TIVIX_QARecruitmentTaskCy/issues"
+  },
+  "homepage": "https://github.com/c-satt/TIVIX_QARecruitmentTaskCy#readme",
+  "dependencies": {
+    "cypress": "^10.6.0"
+  }
+}

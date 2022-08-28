@@ -6,9 +6,9 @@ import {
 } from '../e2e/Constants/rent';
 
 describe('Search page', () => {
-    it('should validate text field input lengths', () => {
+    it('should validate text field input lengths for inputs that are too long', () => {
         let fiftyOneChar = 'ThisIsExactlyFiftyOneCharacterLongWithoutAnyNumbers';
-        let twentySixNum = '12345678901234567890123456';        //card number text field accepts type text
+        let twentySixNum = '12345678901234567890123456';    //card number text field accepts type text
         let fiftyOneCharEmail = 'ThisIsAValidEmail@ThatIsWayTooLongForTheTextVal.com';
         cy.visit('http://qalab.pl.tivixlabs.com');
         cy.validNonFilteredSearch('Poland', 'Wroclaw', '2022-09-15', '2022-09-17');

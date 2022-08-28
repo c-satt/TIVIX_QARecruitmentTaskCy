@@ -11,6 +11,7 @@ describe('Search page', () => {
   beforeEach(() => {
     cy.visit('http://qalab.pl.tivixlabs.com');
   });
+  
   context('Filter Cars', () => {
     it('should filter avaliable cars by model when valid car model is entered in text field', () => {
       let carModel = 'Aygo';

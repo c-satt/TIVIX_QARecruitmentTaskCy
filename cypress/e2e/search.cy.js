@@ -24,7 +24,7 @@ describe('Search page', () => {
       .contains(carModel);
   });
 
-  it.only('should navigate back to default search page when search navigation menu option is clicked', () => {
+  it('should navigate back to default search page when search navigation menu option is clicked', () => {
     cy.visit('http://qalab.pl.tivixlabs.com');
     cy.validNonFilteredSearch('Poland', 'Wroclaw', '2022-09-15', '2022-09-17');
     cy.navigateToFirstCarsDetailPage();

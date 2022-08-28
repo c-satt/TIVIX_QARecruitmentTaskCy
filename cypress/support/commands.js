@@ -1,25 +1,27 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import {
+    searchUserInput,
+    searchTable,
+  } from '../e2e/Constants/search'
+
+//const { api } = globals;
+
+/**
+ * @description Valid car search with given paramaters
+ * @param {String} country the name of the country
+ * @param {String} city the name of the city
+ * @param {String} pickup the date of pick up (yyyy-mm-dd format)
+ * @param {String} dropoff the date of drop off (yyyy-mm-dd format)
+**/
+Cypress.Commands.add('validNonFilteredSearch', (country, city, pickup, dropoff) => {
+    cy.get(searchUserInput.country)
+        .select(country);
+    cy.get(searchUserInput.city)
+        .select(city);
+    cy.get(searchUserInput.pickup)
+        .type(pickup);
+    cy.get(searchUserInput.dropoff)
+        .type('2022-09-17');
+    cy.get(searchUserInput.searchbtn)
+        .contains('Search')
+        .click();
+});

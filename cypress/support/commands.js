@@ -14,7 +14,8 @@ import {
 **/
 Cypress.Commands.add('validNonFilteredSearch', (country, city, pickup, dropoff) => {
     cy.get(searchUserInput.country)
-        .select(country);
+        .select(country)
+        .should('contain', country);
     cy.get(searchUserInput.city)
         .select(city);
     cy.get(searchUserInput.pickup)
@@ -24,4 +25,7 @@ Cypress.Commands.add('validNonFilteredSearch', (country, city, pickup, dropoff) 
     cy.get(searchUserInput.searchbtn)
         .contains('Search')
         .click();
+    cy.url()
+        .should('contain', pickup)
+        .should('contain', dropoff)
 });

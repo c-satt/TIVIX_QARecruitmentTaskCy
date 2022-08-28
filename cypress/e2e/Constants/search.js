@@ -5,6 +5,7 @@ const searchUserInput = {
     pickup: '#pickup',
     dropoff: '#dropoff',
     searchbtn: '.btn-primary',
+    alertMessage: '.alert-danger'
 };
 
 const searchTable = {
@@ -13,7 +14,19 @@ const searchTable = {
     individualRow: 'tr',
 };
 
+const errorMessageVerbiage = {
+    validDates: 'Please fill pickup and drop off dates'
+};
+
+const searchPageDefaultSettings = {
+    country: 3,
+    city: 3,
+    model: 'Model'
+};
+
 export {
     searchUserInput,
     searchTable,
+    errorMessageVerbiage,
+    searchPageDefaultSettings
 };

@@ -42,14 +42,7 @@ describe('Search page', () => {
       .should('equal', 'http://qalab.pl.tivixlabs.com/')
 
     // validate input fields are reset to default values
-    cy.get(searchUserInput.country)
-      .should('have.value', searchPageDefaultSettings.country)
-    cy.get(searchUserInput.city)
-      .should('have.value', searchPageDefaultSettings.city);
-    cy.get(searchUserInput.model)
-      .invoke('attr', 'placeholder')
-      .should('contain', searchPageDefaultSettings.model);
-    // pickup and drop off placeholder text does not help determine if default settings present
+    cy.validateSearchPageDefaults();
 
     // validate reminder date message is present
     cy.get(searchUserInput.alertMessage)

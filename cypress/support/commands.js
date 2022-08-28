@@ -1,7 +1,7 @@
 import {
     searchUserInput,
-    searchTable,
-  } from '../e2e/Constants/search'
+    searchPageDefaultSettings,
+} from '../e2e/Constants/search'
 
 
 /**
@@ -57,4 +57,19 @@ Cypress.Commands.add('navigateToRentPage', () => {
         .click()
     cy.url()
         .should('contain', '/rent')
+});
+
+/**
+ * @description Navigate to a car's rental page from the car details page
+ * @param {} none 
+**/
+Cypress.Commands.add('validateSearchPageDefaults', () => {
+    cy.get(searchUserInput.country)
+      .should('have.value', searchPageDefaultSettings.country)
+    cy.get(searchUserInput.city)
+      .should('have.value', searchPageDefaultSettings.city);
+    cy.get(searchUserInput.model)
+      .invoke('attr', 'placeholder')
+      .should('contain', searchPageDefaultSettings.model);
+    // pickup and drop off placeholder text does not help determine if default settings present
 });
